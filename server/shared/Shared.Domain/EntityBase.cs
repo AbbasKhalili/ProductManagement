@@ -14,6 +14,7 @@ namespace Shared.Domain
 
         protected EntityBase(ISystemClock systemClock)
         {
+            SurrogateKey = Guid.NewGuid();
             CreatedDate = systemClock.ReturnNow();
             LastModified = systemClock.ReturnNow();
             DeletedDate = null;
