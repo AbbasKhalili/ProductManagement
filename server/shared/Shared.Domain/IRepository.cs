@@ -5,7 +5,7 @@ namespace Shared.Domain
     public interface IRepository
     {
     }
-    public interface IRepository<T, in TKey> : IRepository where T : class 
+    public interface IRepository<T, in TKey> : IRepository where T : class
     {
         Task Create(T entity);
         Task<T> GetBy(TKey id);
