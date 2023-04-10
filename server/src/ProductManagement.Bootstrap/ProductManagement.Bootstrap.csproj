@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.0" />
+  </ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\shared\Shared.Domain\Shared.Domain.csproj" />
+	  <ProjectReference Include="..\ProductManagement.Domain\ProductManagement.Domain.csproj" />
+	  <ProjectReference Include="..\ProductManagement.Persistence\ProductManagement.Persistence.csproj" />
+	</ItemGroup>
+	
+</Project>
