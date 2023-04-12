@@ -12,7 +12,7 @@ namespace ProductManagement.Interface.Query.Mappers
 
         internal static ProductDto Map(Product item)
         {
-            return new ProductDto
+            return new()
             {
                 Name = item.Name,
                 Id = item.SurrogateKey,
@@ -21,8 +21,8 @@ namespace ProductManagement.Interface.Query.Mappers
                 Weight = item.Weight,
                 ProductType = (byte)item.ProductType,
                 ProductTypeTitle = item.ProductType.ToString(),
-                CategoryName = item.Category.Title,
-                CategoryId = item.Category.SurrogateKey,
+                CategoryName = item.Category?.Title,
+                CategoryId = item.Category?.SurrogateKey,
             };
         }
     }
