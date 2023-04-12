@@ -17,13 +17,13 @@ namespace ProductManagement.Persistence
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(Product entity)
+        public async Task Update(Product entity)
         {
             _context.Update(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Product entity)
+        public async Task Delete(Product entity)
         {
             _context.Update(entity);
             await _context.SaveChangesAsync();
@@ -31,7 +31,17 @@ namespace ProductManagement.Persistence
 
         public async Task<Product> GetBy(long id)
         {
-            return await _context.Products.FirstOrDefaultAsync(a => a.Id == id);
+            return await _context.Products.FirstOrDefaultAsync(a => a.Id == id && a.Enabled);
+        }
+
+        public async Task<Product> GetBy(Guid id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(a => a.SurrogateKey == id && a.Enabled);
+        }
+
+        public async Task<List<Product>> GetAll()
+        {
+            return await _context.Products.Where(a => a.Enabled).ToListAsync();
         }
     }
 }
