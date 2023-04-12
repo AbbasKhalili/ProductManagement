@@ -7,6 +7,6 @@
         public bool Enabled { get; set; }
         public byte ProductType { get; set; }
         public string Description { get; set; }
-        public long CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }
