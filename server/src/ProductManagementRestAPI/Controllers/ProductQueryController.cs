@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using ProductManagement.Interface.Contract.Product.Dtos;
 using ProductManagement.Interface.Contract.Product.Services;
 

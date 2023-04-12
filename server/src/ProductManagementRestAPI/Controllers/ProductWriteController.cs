@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ProductManagement.Interface.Contract.Product.Models;
+﻿using ProductManagement.Interface.Contract.Product.Models;
 using ProductManagement.Interface.Contract.Product.Services;
 
 namespace ProductManagementRestAPI.Controllers
