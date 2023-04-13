@@ -12,7 +12,7 @@
                 .WithColumn("CreatedDate").AsDateTime2()
                 .WithColumn("LastModified").AsDateTime2()
                 .WithColumn("IsDeleted").AsBoolean()
-                .WithColumn("DeletedDate").AsDateTime2();
+                .WithColumn("DeletedDate").AsDateTime2().Nullable();
         }
     }
 }
