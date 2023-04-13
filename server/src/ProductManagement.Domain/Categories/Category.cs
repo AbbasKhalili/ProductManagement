@@ -1,4 +1,6 @@
-﻿using ProductManagement.Domain.Products;
+﻿global using FluentValidation;
+
+using ProductManagement.Domain.Products;
 
 namespace ProductManagement.Domain.Categories
 {
@@ -8,20 +10,23 @@ namespace ProductManagement.Domain.Categories
 
         public List<Product> Products { get; private set; }
 
-        public Category(string title, ISystemClock systemClock) : base(systemClock)
+
+        protected Category() : base(null) { }
+        public Category(string title, ISystemClock systemClock, IValidator<Category> validator) : base(systemClock)
         {
-            Title = title;
+            SetProperties(title, validator);
         }
 
-        public void Update(string title, ISystemClock systemClock)
+        public void Update(string title, ISystemClock systemClock, IValidator<Category> validator)
         {
-            SetProperties(title);
+            SetProperties(title, validator);
             EntityModified(systemClock);
         }
 
-        private void SetProperties(string title)
+        private void SetProperties(string title, IValidator<Category> validator)
         {
             Title = title;
+            validator.ValidateAndThrow(this);
         }
 
         public void Delete(ISystemClock systemClock)
