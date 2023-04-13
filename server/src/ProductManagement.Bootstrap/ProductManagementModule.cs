@@ -7,6 +7,10 @@ using ProductManagement.Persistence;
 using ProductManagement.Interface.Query;
 using ProductManagement.Interface.Write;
 using ProductManagement.Logger.NLog;
+using Autofac.Core;
+using FluentValidation;
+using System;
+using ProductManagement.Domain.Categories.DomainServices;
 
 namespace ProductManagement.Bootstrap
 {
@@ -39,12 +43,13 @@ namespace ProductManagement.Bootstrap
             builder.RegisterAssemblyTypes(typeof(ProductQueryService).Assembly)
                 .Where(a => typeof(IFacadeService).IsAssignableFrom(a))
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+            .InstancePerLifetimeScope();
 
-            //builder.RegisterAssemblyTypes(typeof(ReserveService).Assembly)
-            //    .Where(a => typeof(IDomainService).IsAssignableFrom(a))
-            //    .AsImplementedInterfaces()
-            //    .InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(typeof(CategoryValidationService).Assembly)
+                .Where(a => typeof(IValidator).IsAssignableFrom(a))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
 
 
             builder.Register<ProductManagementContext>(s =>
