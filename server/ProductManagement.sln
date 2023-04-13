@@ -31,11 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Bootstrap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagementRestAPI", "src\ProductManagementRestAPI\ProductManagementRestAPI.csproj", "{F0375D1E-F9D5-433D-A5DA-6430DE2BD66D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Interface.Contract", "src\ProductManagement.Interface.Contract\ProductManagement.Interface.Contract.csproj", "{C3A805BA-DEA5-4B4B-AFE1-1F4F4215F15D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Interface.Contract", "src\ProductManagement.Interface.Contract\ProductManagement.Interface.Contract.csproj", "{C3A805BA-DEA5-4B4B-AFE1-1F4F4215F15D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Interface.Query", "src\ProductManagement.Interface.Query\ProductManagement.Interface.Query.csproj", "{0DB2EFD0-EDCC-4B30-A9FA-B3644B7527AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Interface.Query", "src\ProductManagement.Interface.Query\ProductManagement.Interface.Query.csproj", "{0DB2EFD0-EDCC-4B30-A9FA-B3644B7527AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Interface.Write", "src\ProductManagement.Interface.Write\ProductManagement.Interface.Write.csproj", "{F710A946-3FAF-4515-9A65-026E0840B18A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductManagement.Interface.Write", "src\ProductManagement.Interface.Write\ProductManagement.Interface.Write.csproj", "{F710A946-3FAF-4515-9A65-026E0840B18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Logger.NLog", "src\ProductManagement.Logger.NLog\ProductManagement.Logger.NLog.csproj", "{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{F710A946-3FAF-4515-9A65-026E0840B18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F710A946-3FAF-4515-9A65-026E0840B18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F710A946-3FAF-4515-9A65-026E0840B18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{C3A805BA-DEA5-4B4B-AFE1-1F4F4215F15D} = {2729E565-6298-41A6-8FDF-116BB27AD70C}
 		{0DB2EFD0-EDCC-4B30-A9FA-B3644B7527AC} = {2729E565-6298-41A6-8FDF-116BB27AD70C}
 		{F710A946-3FAF-4515-9A65-026E0840B18A} = {2729E565-6298-41A6-8FDF-116BB27AD70C}
+		{B94FAB15-CF33-4D15-9DCA-A2E39554AAD4} = {CF54B19A-6D13-4869-A94F-A8DB2E826465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0893E98C-BA53-45A2-A05D-33FC578D6443}

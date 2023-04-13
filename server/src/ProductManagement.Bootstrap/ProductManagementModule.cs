@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using ProductManagement.Persistence;
 using ProductManagement.Interface.Query;
 using ProductManagement.Interface.Write;
+using ProductManagement.Logger.NLog;
 
 namespace ProductManagement.Bootstrap
 {
@@ -58,17 +59,17 @@ namespace ProductManagement.Bootstrap
                 var context = new ProductManagementContext(options.Options);
                 return context;
             }).InstancePerLifetimeScope().OnRelease(a => a.Dispose());
-            
 
 
-            //builder.RegisterType<NLoggerService>().As<ILoggerService>()
-            //    .InstancePerLifetimeScope();
 
-            //builder.RegisterGeneric(typeof(NLoggerService<>))
-            //    .As(typeof(ILoggerService<>))
-            //    .InstancePerLifetimeScope();
+            builder.RegisterType<NLoggerService>().As<ILoggerService>()
+                .InstancePerLifetimeScope();
 
-            //NLogConfigure.Config(_nlogConfigFile);
+            builder.RegisterGeneric(typeof(NLoggerService<>))
+                .As(typeof(ILoggerService<>))
+                .InstancePerLifetimeScope();
+
+            NLogConfigure.Config(_nlogConfigFile);
         }
     }
 }

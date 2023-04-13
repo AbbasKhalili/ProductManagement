@@ -16,6 +16,7 @@
 	  <ProjectReference Include="..\ProductManagement.Domain\ProductManagement.Domain.csproj" />
 	  <ProjectReference Include="..\ProductManagement.Interface.Query\ProductManagement.Interface.Query.csproj" />
 	  <ProjectReference Include="..\ProductManagement.Interface.Write\ProductManagement.Interface.Write.csproj" />
+	  <ProjectReference Include="..\ProductManagement.Logger.NLog\ProductManagement.Logger.NLog.csproj" />
 	  <ProjectReference Include="..\ProductManagement.Persistence\ProductManagement.Persistence.csproj" />
 	</ItemGroup>
 	
