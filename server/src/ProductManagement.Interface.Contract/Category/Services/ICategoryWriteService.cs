@@ -2,7 +2,7 @@
 
 namespace ProductManagement.Interface.Contract.Category.Services
 {
-    public interface ICategoryWriteService
+    public interface ICategoryWriteService : IFacadeService
     {
         Task<Guid> Create(CategoryModel model);
         Task Update(Guid id, CategoryModel model);

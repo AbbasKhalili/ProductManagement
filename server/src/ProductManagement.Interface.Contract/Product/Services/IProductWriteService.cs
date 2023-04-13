@@ -2,7 +2,7 @@
 
 namespace ProductManagement.Interface.Contract.Product.Services
 {
-    public interface IProductWriteService
+    public interface IProductWriteService : IFacadeService
     {
         Task<Guid> Create(ProductModel model);
         Task Update(Guid id, ProductModel model);

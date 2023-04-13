@@ -2,7 +2,7 @@
 
 namespace ProductManagement.Interface.Contract.Category.Services
 {
-    public interface ICategoryQueryService
+    public interface ICategoryQueryService : IFacadeService
     {
         Task<List<CategoryDto>> GetAll();
         Task<CategoryDto> GetById(Guid id);
