@@ -19,19 +19,20 @@ namespace ProductManagement.Domain.Products
 
         protected Product() : base(null) { }
         public Product(string name, Category category, double weight, bool enabled, ProductType productType,
-            string description, ISystemClock systemClock) : base(systemClock)
+            string description, ISystemClock systemClock, IValidator<Product> validator) : base(systemClock)
         {
-            SetProperties(name, category.Id, weight, enabled, productType, description);
+            SetProperties(name, category.Id, weight, enabled, productType, description, validator);
         }
 
         public void Update(string name, long categoryId, double weight, bool enabled, ProductType productType,
-            string description, ISystemClock systemClock)
+            string description, ISystemClock systemClock, IValidator<Product> validator)
         {
-            SetProperties(name, categoryId, weight, enabled, productType, description);
+            SetProperties(name, categoryId, weight, enabled, productType, description, validator);
             EntityModified(systemClock);
         }
 
-        private void SetProperties(string name, long categoryId, double weight, bool enabled, ProductType productType, string description)
+        private void SetProperties(string name, long categoryId, double weight, bool enabled, 
+            ProductType productType, string description, IValidator<Product> validator)
         {
             Name = name;
             CategoryId = categoryId;
@@ -39,6 +40,7 @@ namespace ProductManagement.Domain.Products
             Enabled = enabled;
             ProductType = productType;
             Description = description;
+            validator.ValidateAndThrow(this);
         }
 
         public void Delete(ISystemClock systemClock)

@@ -4,7 +4,7 @@
     {
         public CategoryValidationService()
         {
-            RuleFor(x => x.Title).NotEmpty().WithErrorCode("CategoryTitleCouldNotBeNull").WithMessage("Please specify a title");
+            RuleFor(x => x.Title).NotNull().NotEmpty().WithErrorCode("CategoryTitleCouldNotBeNull").WithMessage("Please specify a title");
         }
     }
 }

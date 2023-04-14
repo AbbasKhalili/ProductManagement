@@ -1,4 +1,5 @@
-﻿using ProductManagement.Domain.Categories;
+﻿using FluentValidation;
+using ProductManagement.Domain.Categories;
 using ProductManagement.Domain.Products;
 using ProductManagement.Interface.Contract.Product.Models;
 using ProductManagement.Interface.Contract.Product.Services;
@@ -12,12 +13,15 @@ namespace ProductManagement.Interface.Write
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ISystemClock _systemClock;
+        private readonly IValidator<Product> _validator;
 
-        public ProductWriteService(IProductRepository productRepository, ICategoryRepository categoryRepository, ISystemClock systemClock)
+        public ProductWriteService(IProductRepository productRepository, ICategoryRepository categoryRepository, 
+            ISystemClock systemClock, IValidator<Product> validator)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
             _systemClock = systemClock;
+            _validator = validator;
         }
 
         public async Task<Guid> Create(ProductModel model)
@@ -27,7 +31,7 @@ namespace ProductManagement.Interface.Write
             Guard<EntityNotFoundException>.AgainstNull(category);
 
             var product = new Product(model.Name, category, model.Weight, model.Enabled,
-                (ProductType)model.ProductType, model.Description, _systemClock);
+                (ProductType)model.ProductType, model.Description, _systemClock, _validator);
 
             await _productRepository.Create(product);
 
@@ -43,7 +47,7 @@ namespace ProductManagement.Interface.Write
             Guard<EntityNotFoundException>.AgainstNull(product);
 
             product.Update(model.Name, category.Id, model.Weight, model.Enabled,
-                (ProductType)model.ProductType, model.Description, _systemClock);
+                (ProductType)model.ProductType, model.Description, _systemClock, _validator);
 
             await _productRepository.Update(product);
         }
