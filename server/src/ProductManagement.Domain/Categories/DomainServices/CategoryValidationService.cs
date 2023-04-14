@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using FluentValidation.Results;
-
-namespace ProductManagement.Domain.Categories.DomainServices
+﻿namespace ProductManagement.Domain.Categories.DomainServices
 {
     public class CategoryValidationService : AbstractValidator<Category>, IDomainService
     {

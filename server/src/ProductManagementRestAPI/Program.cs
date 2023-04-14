@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using ProductManagement.Bootstrap;
 using ProductManagement.Migration;
 using ProductManagementRestAPI;
+using ProductManagementRestAPI.ExceptionHandling;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -33,6 +34,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.Services.GetAutofacRoot().RunMigration();
+
+if (!app.Environment.IsDevelopment())
+    app.ConfigGravityExceptionMiddleware(ExceptionsResource.ResourceManager);
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
