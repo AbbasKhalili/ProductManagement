@@ -12,6 +12,7 @@ namespace ProductManagement.Migration
                 .WithColumn("SurrogateKey").AsGuid()
                 .WithColumn("Name").AsString()
                 .WithColumn("Weight").AsDouble()
+                .WithColumn("Enabled").AsBoolean()
                 .WithColumn("ProductType").AsByte()
                 .WithColumn("Description").AsString()
                 .WithColumn("CategoryId").AsInt64()
