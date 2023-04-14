@@ -9,6 +9,11 @@ namespace ProductManagement.Interface.Query
     {
         private readonly ICategoryRepository _categoryRepository;
 
+        public CategoryQueryService(ICategoryRepository categoryRepository)
+        {
+            _categoryRepository = categoryRepository;
+        }
+
         public async Task<List<CategoryDto>> GetAll()
         {
             var categories = await _categoryRepository.GetAll();
