@@ -31,17 +31,17 @@ namespace ProductManagement.Persistence
 
         public async Task<Product> GetBy(long id)
         {
-            return await _context.Products.FirstOrDefaultAsync(a => a.Id == id && a.Enabled);
+            return await _context.Products.Include(a => a.Category).FirstOrDefaultAsync(a => a.Id == id && !a.IsDeleted);
         }
 
         public async Task<Product> GetBy(Guid id)
         {
-            return await _context.Products.FirstOrDefaultAsync(a => a.SurrogateKey == id && a.Enabled);
+            return await _context.Products.Include(a => a.Category).FirstOrDefaultAsync(a => a.SurrogateKey == id && !a.IsDeleted);
         }
 
         public async Task<List<Product>> GetAll()
         {
-            return await _context.Products.Where(a => a.Enabled).ToListAsync();
+            return await _context.Products.Include(a => a.Category).Where(a => !a.IsDeleted).ToListAsync();
         }
     }
 }
